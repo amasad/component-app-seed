@@ -13,17 +13,17 @@ Simple seed project for [component(1)](http://component.io/) based apps.
 
 A few assumptions:
 
-1. `lib/boot/` is your app's entry point
+1. `index.html` is your landing page and `lib/boot/` is your app's entry point component.
 2. All local components will be created under `lib/`
 3. Each local component will define it's own dependencies  
 
 ### Local components
 
-Creating local components:
+To create a new local component:
 
     $ component create -l lib/<component-name>
 
-To require a local component from another local component, add `<component-name>` to the `local` array in `component.json`.
+To require it from another local component, add `<component-name>` to the `local` array in `component.json` of the requiring component.
 
 ### Third party components
 
@@ -31,7 +31,9 @@ Search for components:
 
     $ component search <component-name>
 
-Add the component `<github-username>/<component-name>` to the local component's `dependencies` object with the value being the version number or `*` for latest.
+Add the component `<github-username>/<component-name>` to the local component's `dependencies` object with the value being the version number or `*` for latest.  
+
+_Note that all dependencies will be installed in the root directory's `component/`_
 
 ### Make commands
 
@@ -55,4 +57,8 @@ To clean the working directory from build files (useful for updating components)
 
     $ make clean
 
+## Example apps using this
 
+* [GuessHub.io](https://github.com/max99x/guesshub/)
+* [debugjs.com](https://github.com/amasad/debugjs.com)
+* [learnable-programming-demo](https://github.com/amasad/learnable-programming-demo)
